@@ -12,14 +12,15 @@ import cl.duoc.formativa.model.Product;
 @Repository
 public class ProductRepository {
     private final Map<Long, Product> productStore = new HashMap<>();
+
     public  List<Product> findAll(){
         return new ArrayList<>(productStore.values());
-
     }
 
     public Optional<Product> findById(Long id){
         return Optional.ofNullable(productStore.get(id));
     }
+    
     public Product save(Product product){
         productStore.put(product.getId(), product);
         return product;
